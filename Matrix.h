@@ -1,6 +1,6 @@
 #ifndef MATRIX_H
 #define MATRIX_H
-
+#include <iostream>
 #include <vector>
 
 using namespace std;
@@ -8,9 +8,11 @@ using namespace std;
 class Matrix {
 
 public:
+
     Matrix();               // create an empty matrix
 
     int rows();             // return number of rows of the matrix
+    
     int columns();          // return number of columns of the matrix
 
     /* The function fill_from_file initializes the matrix content from a file,
@@ -35,15 +37,15 @@ public:
 
     /* Matrix - matrix addition: add m to the current matrix and overwrite the
      * current matrix with the result: */
-    int add(Matrix *m);
+    int add(Matrix *m,char *path);
 
     /* Matrix - scalar addition: add val to the current matrix and overwrite
-     * the current matrix with the resul: */
+     * the current matrix with the result: */
     int add(int val);
 
     /* Matrix - matrix multiplication: multiply the current matrix by m and
      * overwrite the current matrix with the result */
-    int mult(Matrix *m);
+    int mult(Matrix *m,char *path);
 
     /* Matrix - scalar multiplication: multiply the current matrix by m and
      * overwrites the current matrix with the result */
@@ -52,6 +54,13 @@ public:
 private:
     /* A bi-dimensional vector containing the matrix content: */
     vector<vector<int>> _matrix;
+    vector<vector<int>> _matrix2;
+
+    int R = 0;
+    int C = 0;
+
+    int row_count = 0;
+    int col_count = 0;
 };
 
 #endif /* ifndef MATRIX_H */
